@@ -10,7 +10,8 @@
   "author": "Grant Berman ",
   "contributors": [
     "Christopher Andrews <candrews@middlebury.edu>",
-    "Michael Linderman <mlinderman@middlebury.edu>"
+    "Michael Linderman <mlinderman@middlebury.edu>",
+    "Grant Berman <gberman@middlebury.edu"
   ],
   "license": "Apache-2.0",
   "devDependencies": {

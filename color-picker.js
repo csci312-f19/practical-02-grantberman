@@ -13,8 +13,12 @@ returns all changes via a callback. The callback is passed an object of the form
 */
 const createSlider = function createSlider(color, initialValue, callback) {
 
+    // create a div to hold all of the slider elements
+ 
     const slider = document.createElement('div');
     slider.className = `${color}-slider`;
+
+    // create a div to hold the color name and add it to the slider
 
     const label = document.createElement('div'); 
     label.className =`color-label`;
@@ -22,6 +26,7 @@ const createSlider = function createSlider(color, initialValue, callback) {
 
     slider.appendChild(label);
 
+      // create the range input and add it to the slider
     const range = document.createElement('input');
     range.type = 'range';
     range.min = 0;
@@ -29,35 +34,22 @@ const createSlider = function createSlider(color, initialValue, callback) {
     range.value = initialValue; 
     slider.appendChild(range);
 
+    // create the readout to display the current value and add it to the slider
+
     const readout = document.createElement('span');
     readout.innerHTML = initialValue;
     slider.appendChild(readout);
 
+    // set the range input's oninput function to update the readout and call the callback
     range.oninput = () => { 
         readout.innerHTML = range.value;
         callback({ [color]: parseInt(range.value, 10)});
     };
 
-    return slider;
-
-
-
-  // create a div to hold all of the slider elements
- 
-
-  // create a div to hold the color name and add it to the slider
-
-
-  // create the range input and add it to the slider
-  
-
-  // create the readout to display the current value and add it to the slider
-  
-
-  // set the range input's oninput function to update the readout and call the callback
-  
 
   // return the slider
+    return slider;
+
 
 };
 
