@@ -12,6 +12,36 @@ returns all changes via a callback. The callback is passed an object of the form
 
 */
 const createSlider = function createSlider(color, initialValue, callback) {
+
+    const slider = document.createElement('div');
+    slider.className = `${color}-slider`;
+
+    const label = document.createElement('div'); 
+    label.className =`color-label`;
+    label.innerHTML = `${color}:`;
+
+    slider.appendChild(label);
+
+    const range = document.createElement('input');
+    range.type = 'range';
+    range.min = 0;
+    range.max = 255; 
+    range.value = initialValue; 
+    slider.appendChild(range);
+
+    const readout = document.createElement('span');
+    readout.innerHTML = initialValue;
+    slider.appendChild(readout);
+
+    range.oninput = () => { 
+        readout.innerHTML = range.value;
+        callback({ [color]: parseInt(range.value, 10)});
+    };
+
+    return slider;
+
+
+
   // create a div to hold all of the slider elements
  
 
